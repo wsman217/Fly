@@ -5,16 +5,9 @@ import java.io.File;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
-private static Main plugin;
-	
-	public static Main getPlugin() {
-		
-		return plugin;
-	}
  
     @Override
     public void onEnable() {
-    	plugin = this;
     	
     	 File file = new File(getDataFolder() + File.separator + "config.yml"); //This will get the config file
     	  
@@ -36,12 +29,12 @@ private static Main plugin;
 		System.out.println("NightVision has been ENABLED");
 		System.out.println("Author: wsman217");
 		
-		getCommand("fly").setExecutor(new me.wsman217.FlyPlugin.commands.FlyCommands());
+		getCommand("fly").setExecutor(new me.wsman217.FlyPlugin.commands.FlyCommands(this));
     }
    
     @Override
     public void onDisable() {
-    	plugin = null;
+
 		System.out.println("NightVision has been DISABLED");
 		System.out.println("Author: wsman217");
     }
