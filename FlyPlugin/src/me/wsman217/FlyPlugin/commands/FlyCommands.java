@@ -10,9 +10,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class FlyCommands implements CommandExecutor{
 	
+	Main plugin;
+	
+	FlyCommands(Main plugin) {
+		this.plugin=plugin;
+	}
+	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			System.out.println(getConfig().getString("console_error"));
+			System.out.println(plugin.getConfig().getString("console_error"));
 		}
 		
 		return false;
